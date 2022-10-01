@@ -6,7 +6,7 @@ import icon_next_icon from "../../public/images/icon-next-icon.png";
 import { theme } from "../../styles/theme";
 
 const surveyTitle = css`
-  font-size: ${theme.fontSize.large};
+  font-size: ${theme.fontSize.large}px;
   font-weight: bold;
   color: ${theme.colors.black};
 `;
@@ -15,17 +15,17 @@ const surveyContentWrapper = css`
   margin: 80px 0;
 
   .current-num {
-    font-size: ${theme.fontSize.large};
+    font-size: ${theme.fontSize.large}px;
     font-weight: bold;
     color: ${theme.colors.main};
   }
   .total-num {
-    font-size: ${theme.fontSize.small};
+    font-size: ${theme.fontSize.small}px;
     color: ${theme.colors.Gray};
   }
 
   .survey-content {
-    font-size: ${theme.fontSize.medium};
+    font-size: ${theme.fontSize.medium}px;
     color: ${theme.colors.darkGray};
   }
 
@@ -74,18 +74,13 @@ const movePageBtnWrapper = css`
 
     :hover {
       color: #ffd300;
-      filter: #ffd300;
     }
   }
 
   span {
-    font-size: ${theme.fontSize.medium};
+    font-size: ${theme.fontSize.medium}px;
     font-weight: bold;
   }
-`;
-
-const iconBack = css`
-  cursor: pointer;
 `;
 
 export default function SurveyForm() {
@@ -118,15 +113,15 @@ export default function SurveyForm() {
 
       <div css={movePageBtnWrapper}>
         <button className="back-btn">
-          <Image src={icon_back_grey} css={iconBack} alt="icon_back" />
+          <Image src={icon_back_grey} alt="icon_back" />
           <span>이전</span>
         </button>
         <button className="next-btn">
           <span>다음</span>
-          <Image src={icon_next_icon} css={iconBack} alt="icon_back" />
+          <Image src={icon_next_icon} alt="icon_next" />
         </button>
       </div>
-      
+
     </section>
   );
 }
