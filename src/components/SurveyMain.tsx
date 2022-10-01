@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import image_survey from "../../public/images/image-survey.png";
+import { theme } from "../../styles/theme";
 
 const contentDescription = css`
   display: flex;
@@ -10,15 +11,16 @@ const contentDescription = css`
   padding-right: 60px;
 
   h2 {
-    font-size: 20px;
+    font-size: ${theme.fontSize.large};
     margin: 0;
+    color: ${theme.colors.black};
   }
 
   p {
-    font-size: 14px;
-    color: #444;
+    font-size: ${theme.fontSize.small};
+    color: ${theme.colors.darkGray};
   }
-`
+`;
 const imageSurveyWrapper = css`
   display: flex;
   justify-content: flex-end;
@@ -27,19 +29,20 @@ const imageSurveyWrapper = css`
 const surveyCountWrapper = css`
   text-align: center;
   font-weight: bold;
+  color: ${theme.colors.black};
 
   span {
-    color: #ffd300;
+    color: ${theme.colors.main};
   }
 `;
 
 const startButton = css`
   width: 100%;
   height: 50px;
+  font-size: ${theme.fontSize.small};
   font-weight: bold;
-  font-size: 14px;
-  color: #000;
-  background-color: #ffd300;
+  color: ${theme.colors.black};
+  background-color: ${theme.colors.main};
   border: none;
   border-radius: 23px;
   cursor: pointer;

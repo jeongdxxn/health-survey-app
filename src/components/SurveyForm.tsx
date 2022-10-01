@@ -3,29 +3,30 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import icon_back_grey from "../../public/images/icon-back-grey.png";
 import icon_next_icon from "../../public/images/icon-next-icon.png";
+import { theme } from "../../styles/theme";
 
 const surveyTitle = css`
-  font-size: 20px;
+  font-size: ${theme.fontSize.large};
   font-weight: bold;
-  color: #000;
-`
+  color: ${theme.colors.black};
+`;
 
 const surveyContentWrapper = css`
   margin: 80px 0;
 
   .current-num {
-    font-size: 20px;
+    font-size: ${theme.fontSize.large};
     font-weight: bold;
-    color: #ffd300;
+    color: ${theme.colors.main};
   }
   .total-num {
-    font-size: 14px;
-    color: #ccc;
+    font-size: ${theme.fontSize.small};
+    color: ${theme.colors.Gray};
   }
 
   .survey-content {
-    font-size: 16px;
-    color: #444;
+    font-size: ${theme.fontSize.medium};
+    color: ${theme.colors.darkGray};
   }
 
   .survey-answers {
@@ -39,13 +40,13 @@ const surveyContentWrapper = css`
       height: 42px;
       padding: 0 20px;
       margin: 5px 0;
-      color: #444444;
-      background-color: #f7f7f7;
+      color: ${theme.colors.darkGray};
+      background-color: ${theme.colors.lightGray};
       border-radius: 22px;
       cursor: pointer;
 
       :checked {
-        background-color: #ffd300;
+        background-color: ${theme.colors.main};
       }
     }
   }
@@ -57,10 +58,10 @@ const movePageBtnWrapper = css`
   align-items: center;
 
   .back-btn {
-    color: #444;
+    color: ${theme.colors.darkGray};
   }
   .next-btn {
-    color: #ccc;
+    color: ${theme.colors.Gray};
   }
 
   button {
@@ -78,7 +79,7 @@ const movePageBtnWrapper = css`
   }
 
   span {
-    font-size: 16px;
+    font-size: ${theme.fontSize.medium};
     font-weight: bold;
   }
 `;
@@ -125,6 +126,7 @@ export default function SurveyForm() {
           <Image src={icon_next_icon} css={iconBack} alt="icon_back" />
         </button>
       </div>
+      
     </section>
   );
 }

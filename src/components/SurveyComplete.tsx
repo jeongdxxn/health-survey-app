@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import icon_back_grey from "../../public/images/icon-back-grey.png";
 import icon_next_icon from "../../public/images/icon-next-icon.png";
+import { theme } from "../../styles/theme";
 
 const surveyCompleteTextWrapper = css`
   height: 70vh;
@@ -11,8 +12,8 @@ const surveyCompleteTextWrapper = css`
   align-items: center;
   text-align: center;
   padding-bottom: 15vh;
-  font-size: 16px;
-  color: #000;
+  font-size: ${theme.fontSize.medium};
+  color: ${theme.colors.black};
 
   span {
     font-weight: bold;
@@ -25,10 +26,10 @@ const movePageBtnWrapper = css`
   align-items: center;
 
   .back-btn {
-    color: #444;
+    color: ${theme.colors.darkGray};
   }
   .next-btn {
-    color: #ccc;
+    color: ${theme.colors.Gray};
   }
 
   button {
@@ -40,13 +41,12 @@ const movePageBtnWrapper = css`
     cursor: pointer;
 
     :hover {
-      color: #ffd300;
-      filter: #ffd300;
+      color: ${theme.colors.main};
     }
   }
 
   span {
-    font-size: 16px;
+    font-size: ${theme.fontSize.medium};
     font-weight: bold;
   }
 `;
@@ -58,6 +58,7 @@ const iconBack = css`
 export default function SurveyComplete() {
   return (
     <section>
+
       <div css={surveyCompleteTextWrapper}>
         <p>
           <span>
@@ -67,6 +68,7 @@ export default function SurveyComplete() {
           평가설문이 끝났습니다.
         </p>
       </div>
+
       <div css={movePageBtnWrapper}>
         <button className="back-btn">
           <Image src={icon_back_grey} css={iconBack} alt="icon_back" />
@@ -77,6 +79,7 @@ export default function SurveyComplete() {
           <Image src={icon_next_icon} css={iconBack} alt="icon_back" />
         </button>
       </div>
+      
     </section>
   );
 }
