@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import Image from "next/image";
+import Link from "next/link";
 import image_survey from "../../public/images/image-survey.png";
 import { theme } from "../../styles/theme";
 
@@ -11,13 +12,13 @@ const contentDescription = css`
   padding-right: 60px;
 
   h2 {
-    font-size: ${theme.fontSize.large};
+    font-size: ${theme.fontSize.large}px;
     margin: 0;
     color: ${theme.colors.black};
   }
 
   p {
-    font-size: ${theme.fontSize.small};
+    font-size: ${theme.fontSize.small}px;
     color: ${theme.colors.darkGray};
   }
 `;
@@ -39,7 +40,7 @@ const surveyCountWrapper = css`
 const startButton = css`
   width: 100%;
   height: 50px;
-  font-size: ${theme.fontSize.small};
+  font-size: ${theme.fontSize.small}px;
   font-weight: bold;
   color: ${theme.colors.black};
   background-color: ${theme.colors.main};
@@ -73,7 +74,9 @@ export default function SurveyMain() {
         </p>
       </div>
       
-      <button css={startButton}>설문 시작</button>
+      <Link href="/survey">
+        <button css={startButton}>설문 시작</button>
+      </Link>
 
     </section>
   );

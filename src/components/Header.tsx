@@ -1,10 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import Image from "next/image"
+import { useRouter } from "next/router";
 import icon_back_black from "../../public/images/icon-back-black.png"
 
 const headerWrapper = css`
   width: 360px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +23,14 @@ const iconBack = css`
 `
 
 export default function Header() {
+  const router = useRouter();
+
+  const handleRouteBack = () => {
+    if (router.pathname !== "/") {
+      router.back()
+    }
+  }
+
   return (
     <header css={headerWrapper}>
       <Image
@@ -28,8 +38,12 @@ export default function Header() {
         css={iconBack}
         layout="fixed"
         alt="icon_back"
+        onClick={handleRouteBack}
       />
-      <h1>기초 설문</h1>
+
+      {router.pathname === "/" &&
+        <h1>기초 설문</h1>
+      }
     </header>
   );
 }
