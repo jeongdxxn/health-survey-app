@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Footer from "../../src/components/Footer";
 import Header from "../../src/components/Header";
@@ -5,6 +6,9 @@ import SurveyForm from "../../src/components/SurveyForm";
 import styles from "../../styles/Home.module.css";
 
 export default function SurveyPage() {
+  const router = useRouter();
+  const { id } = router.query;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +20,7 @@ export default function SurveyPage() {
       <Header />
 
       <main className={styles.main}>
-        <SurveyForm />
+        <SurveyForm queryId={id} />
       </main>
 
       <Footer />

@@ -2,8 +2,10 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import image_survey from "../../public/images/image-survey.png";
 import { theme } from "../../styles/theme";
+import { surveys } from "../assets/surveys.json"
 
 const contentDescription = css`
   display: flex;
@@ -27,7 +29,7 @@ const imageSurveyWrapper = css`
   justify-content: flex-end;
 `
 
-const surveyCountWrapper = css`
+const surveysCountWrapper = css`
   text-align: center;
   font-weight: bold;
   color: ${theme.colors.black};
@@ -50,9 +52,21 @@ const startButton = css`
 `;
 
 export default function SurveyMain() {
+
+  const [surveysCount, setSurveysCount] = useState<number>();
+  
+  useEffect(() => {
+    setSurveysCount(
+      surveys
+        .map((el) => {
+          return el.questions;
+        })
+        .flat().length
+    );
+  },[])
+
   return (
     <section>
-
       <div css={contentDescription}>
         <h2>나쁜 생활습관을 바로 잡으면 건강이 개선됩니다.</h2>
         <p>
@@ -63,21 +77,20 @@ export default function SurveyMain() {
           건강관리 서비스를 제공합니다.
         </p>
       </div>
-      
+
       <div css={imageSurveyWrapper}>
         <Image src={image_survey} alt="image_survey" />
       </div>
-      
-      <div css={surveyCountWrapper}>
+
+      <div css={surveysCountWrapper}>
         <p>
-          설문은 총 <span>63문항</span> 입니다.
+          설문은 총 <span>{surveysCount}문항</span> 입니다.
         </p>
       </div>
-      
-      <Link href="/survey">
+
+      <Link href={`survey/?id=${surveys[0].questions[0]}&name=dain`}>
         <button css={startButton}>설문 시작</button>
       </Link>
-
     </section>
   );
 }

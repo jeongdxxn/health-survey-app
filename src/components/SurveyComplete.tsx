@@ -5,6 +5,10 @@ import icon_back_grey from "../../public/images/icon-back-grey.png";
 import icon_next_icon from "../../public/images/icon-next-icon.png";
 import { theme } from "../../styles/theme";
 
+interface SurveyCompleteProps {
+  title?: string;
+}
+
 const surveyCompleteTextWrapper = css`
   height: 70vh;
   display: flex;
@@ -51,31 +55,16 @@ const movePageBtnWrapper = css`
   }
 `;
 
-export default function SurveyComplete() {
+export default function SurveyComplete({ title }: SurveyCompleteProps) {
   return (
     <section>
-
       <div css={surveyCompleteTextWrapper}>
         <p>
-          <span>
-            건강관리
-          </span>
+          <span>{title}</span>
           <br />
           평가설문이 끝났습니다.
         </p>
       </div>
-
-      <div css={movePageBtnWrapper}>
-        <button className="back-btn">
-          <Image src={icon_back_grey} alt="icon_back" />
-          <span>이전</span>
-        </button>
-        <button className="next-btn">
-          <span>다음</span>
-          <Image src={icon_next_icon} alt="icon_next" />
-        </button>
-      </div>
-
     </section>
   );
 }
